@@ -12,16 +12,28 @@ public class GameController : MonoBehaviour
     public float TUBIMAXY = 3f;
 
     public GameObject tubi;
+    public GameObject flappy;
+    public GameObject gameStart;
+    public GameObject gameOver;
+
+    FlappyGame game;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        game = FlappyGame.Instance;
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if(game.IsGameOver){
+            flappy.SetActive(false);
+            gameOver.SetActive(true);
+            gameStart.SetActive(true);
+            return;     
+        }
 
         timerSpawn += Time.deltaTime;
         if (timerSpawn >= spawnRate) {

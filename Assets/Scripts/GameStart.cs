@@ -6,14 +6,13 @@ public class GameStart : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    Flappy flappy;
-    GameOver gameOver;
+    public GameObject flappy;
+    public GameObject gameOver;
     FlappyGame game;
 
     void Start()
     {
-        flappy = GetComponent<Flappy>();
-        gameOver = GetComponent<GameOver>();
+
         game = FlappyGame.Instance;
     }
 
@@ -25,9 +24,8 @@ public class GameStart : MonoBehaviour
 
         if(Input.GetMouseButtonDown(0)) {
             game.IsGameOver = false;
-            flappy.enabled = true;
-            gameOver.enabled = false;
-            enabled = false;
+            flappy.SetActive(true);
+            gameOver.SetActive(false);
         }
 
     }
