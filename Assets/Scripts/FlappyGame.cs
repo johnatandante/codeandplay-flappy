@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FlappyGame
+public class FlappyGame : MonoBehaviour
 {
     public bool IsGameOver = false;
 
@@ -14,6 +14,17 @@ public class FlappyGame
             if(instance == null) instance = new FlappyGame();
             return instance;
         }
+    }
+
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
     }
 
 }
