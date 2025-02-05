@@ -29,6 +29,7 @@ public class Tubi : MonoBehaviour
                 transform.position.y);
         } else {
             //transform.position = posIniziale;
+            Destroy(gameObject);
         }
         
     }
