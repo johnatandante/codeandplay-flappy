@@ -5,6 +5,8 @@ using UnityEngine;
 public class Tubi : MonoBehaviour
 {
 
+
+    AudioSource audio;
     private bool contato = false;
 
     public static float VELOCITY = 2.000f;
@@ -13,13 +15,13 @@ public class Tubi : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        audio = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(GameController.CurrentState == GameController.GameState.GameOver)
+        if(GameController.CurrentState != GameController.GameState.Playing)
             return;
         
         if(transform.position.x >= LIMITX) {
@@ -35,7 +37,7 @@ public class Tubi : MonoBehaviour
             transform.position.x < -2.5f) {
             contato = true;
             GameController.Punti += 1;
-
+            audio.Play();
         } 
         
     }
