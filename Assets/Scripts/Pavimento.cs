@@ -10,27 +10,26 @@ public class Pavimento : MonoBehaviour
 
     Vector2 posIniziale;
 
-    FlappyGame game;
+    public GameController game;
 
     // Start is called before the first frame update
     void Start()
     {
         posIniziale = transform.position;
-        game = FlappyGame.Instance;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(game.IsGameOver)
-            return;
-            
-        if(transform.position.x >= LIMITX) {
-            transform.position = 
-            new Vector2(transform.position.x - VELOCITY * Time.deltaTime, 
-                transform.position.y);
-        } else {
-            transform.position = posIniziale;
+        if(GameController.CurrentState == GameController.GameState.Playing) {
+              
+            if(transform.position.x >= LIMITX) {
+                transform.position = 
+                new Vector2(transform.position.x - VELOCITY * Time.deltaTime, 
+                    transform.position.y);
+            } else {
+                transform.position = posIniziale;
+            }
         }
     }
 }

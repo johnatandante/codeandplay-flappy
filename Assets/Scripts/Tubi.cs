@@ -5,24 +5,23 @@ using UnityEngine;
 public class Tubi : MonoBehaviour
 {
 
+    private bool contato = false;
+
     public static float VELOCITY = 2.000f;
     public static float LIMITX = -4.20f;
-
-    FlappyGame game;
 
     // Start is called before the first frame update
     void Start()
     {
-        game = FlappyGame.Instance;
         
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(game.IsGameOver)
+        if(GameController.CurrentState == GameController.GameState.GameOver)
             return;
-            
+        
         if(transform.position.x >= LIMITX) {
             transform.position = 
             new Vector2(transform.position.x - VELOCITY * Time.deltaTime, 
@@ -31,6 +30,14 @@ public class Tubi : MonoBehaviour
             //transform.position = posIniziale;
             Destroy(gameObject);
         }
+
+        if(!contato && 
+            transform.position.x < -2.5f) {
+            contato = true;
+            GameController.Punti += 1;
+
+        } 
         
     }
+
 }

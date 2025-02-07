@@ -8,24 +8,29 @@ public class Flappy : MonoBehaviour
 
     float DIRECTIONUP = 3f;
 
-    FlappyGame game;
+    public GameController game ;
 
     // Start is called before the first frame update
     void Start()
     {
         body2D = GetComponent<Rigidbody2D>();
-        game = FlappyGame.Instance;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(game.IsGameOver)
-            return;
-            
-        if(Input.GetMouseButtonDown(0)) {
-            body2D.velocity = new Vector2(0f, DIRECTIONUP);
+        if(GameController.CurrentState == GameController.GameState.Playing) {       
+            if(Input.GetMouseButtonDown(0)) {
+                body2D.velocity = new Vector2(0f, DIRECTIONUP);
+            } 
         }
         
     }
+    
+    void OnCollisionEnter2D(Collision2D collision) {
+
+        game.EndGame();
+
+    }
+
 }

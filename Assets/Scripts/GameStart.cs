@@ -1,34 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameStart : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    Flappy flappy;
-    GameOver gameOver;
-    FlappyGame game;
-
-    void Start()
-    {
-        flappy = GetComponent<Flappy>();
-        gameOver = GetComponent<GameOver>();
-        game = FlappyGame.Instance;
-    }
+    public GameController game;
 
     // Update is called once per frame
-    void Update()
+    public void ClickRestart()
     {
-        if(!game.IsGameOver)
-            return;
-
-        if(Input.GetMouseButtonDown(0)) {
-            game.IsGameOver = false;
-            flappy.enabled = true;
-            gameOver.enabled = false;
-            enabled = false;
-        }
+        game.StartGame(); 
+        SceneManager.LoadScene(0);
 
     }
 }
