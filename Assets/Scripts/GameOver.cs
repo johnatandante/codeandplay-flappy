@@ -5,12 +5,11 @@ using UnityEngine;
 public class GameOver : MonoBehaviour
 {
     // Start is called before the first frame update
-    AudioSource audio;
+    AudioSource audioEnd;
 
     void Start()
     {
-
-        audio = GetComponent<AudioSource>();
+        audioEnd = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame

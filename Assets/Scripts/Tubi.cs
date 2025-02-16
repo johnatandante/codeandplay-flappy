@@ -6,7 +6,7 @@ public class Tubi : MonoBehaviour
 {
 
 
-    AudioSource audio;
+    AudioSource audioPunto;
     private bool contato = false;
 
     public static float VELOCITY = 2.000f;
@@ -15,7 +15,7 @@ public class Tubi : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audio = GetComponent<AudioSource>();
+        audioPunto = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -37,7 +37,7 @@ public class Tubi : MonoBehaviour
             transform.position.x < -2.5f) {
             contato = true;
             GameController.Punti += 1;
-            audio.Play();
+            audioPunto.Play();
         } 
         
     }
