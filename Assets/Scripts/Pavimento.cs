@@ -21,7 +21,7 @@ public class Pavimento : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameController.CurrentState == GameController.GameState.Playing) {
+        if(GameController.GameOn) {
               
             if(transform.position.x >= LIMITX) {
                 transform.position = 

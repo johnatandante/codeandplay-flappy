@@ -21,7 +21,7 @@ public class Tubi : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameController.CurrentState != GameController.GameState.Playing)
+        if(!GameController.GameOn)
             return;
         
         if(transform.position.x >= LIMITX) {
@@ -36,7 +36,6 @@ public class Tubi : MonoBehaviour
         if(!contato && 
             transform.position.x < -2.5f) {
             contato = true;
-            GameController.Punti += 1;
             audioPunto.Play();
         } 
         

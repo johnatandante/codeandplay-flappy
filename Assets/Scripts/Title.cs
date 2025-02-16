@@ -16,15 +16,11 @@ public class Title : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GameController.CurrentState == GameController.GameState.Start) {
+        if(!GameController.GameOn) {
             if(Input.GetMouseButtonDown(0)) {
-                game.Play();
+               game.Play();
             }
         }
-    }
-
-    public void OnClickStart() {
-        game.Play();
     }
 
 }
